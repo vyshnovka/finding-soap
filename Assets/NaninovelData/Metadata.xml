@@ -509,6 +509,7 @@
       &lt;string&gt;QuestLog&lt;/string&gt;
       &lt;string&gt;NPC1Mood&lt;/string&gt;
       &lt;string&gt;NPC2Mood&lt;/string&gt;
+      &lt;string&gt;Failed&lt;/string&gt;
     &lt;/Variables&gt;
     &lt;Functions /&gt;
   &lt;/Metadata&gt;

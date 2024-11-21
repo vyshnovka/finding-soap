@@ -1,3 +1,4 @@
+using Internal.Gameplay;
 using Naninovel;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ namespace Commands
             switch (gameType.ToString()) 
             {
                 case "Memory":
-                    Debug.Log("Memory game");
+                    MinigameManager.OnMinigameStart.Invoke();
                     break;
                 default:
                     Debug.Log("Other game");

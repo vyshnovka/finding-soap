@@ -12,6 +12,7 @@ namespace Internal.UI
         public static Action<string> OnUpdateQuestLog = null;
         public static Action OnToggleNavigation = null;
         public static Action<string> OnToggleButton = null;
+        public static Action<bool> OnMinigameStart = null;
 
         [SerializeField]
         private GameObject questLog;
@@ -20,15 +21,18 @@ namespace Internal.UI
 
         [SerializeField]
         private GameObject mapButton;
-
         [SerializeField]
         private List<Button> mapLocations;
+
+        [SerializeField]
+        private GameObject minigameCanvas;
 
         void OnEnable()
         {
             OnUpdateQuestLog += UpdateQuestLog;
             OnToggleNavigation += ToggleNavigation;
             OnToggleButton += ToggleButtonInt;
+            OnMinigameStart += ToggleMinigameUI;
         }
 
         void OnDisable()
@@ -36,6 +40,7 @@ namespace Internal.UI
             OnUpdateQuestLog -= UpdateQuestLog;
             OnToggleNavigation -= ToggleNavigation;
             OnToggleButton -= ToggleButtonInt;
+            OnMinigameStart -= ToggleMinigameUI;
         }
 
         private void UpdateQuestLog(string newQuestLog)
@@ -57,6 +62,11 @@ namespace Internal.UI
         {
             var buttonToToggle = mapLocations.FirstOrDefault(button => button.gameObject.name == buttonName);
             buttonToToggle.interactable = !buttonToToggle.interactable;
+        }
+
+        private void ToggleMinigameUI(bool active)
+        {
+            minigameCanvas.SetActive(active);
         }
     }
 }
