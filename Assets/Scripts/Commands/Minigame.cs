@@ -10,7 +10,7 @@ namespace Commands
         [ParameterAlias("type"), RequiredParameter]
         public StringParameter gameType;
 
-        public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
+        public override async UniTask ExecuteAsync(AsyncToken asyncToken = default)
         {
             switch (gameType.ToString()) 
             {
@@ -22,7 +22,7 @@ namespace Commands
                     break;
             }
 
-            return UniTask.CompletedTask;
+            await MinigameManager.WaitForMinigameCompletion();
         }
     }
 }

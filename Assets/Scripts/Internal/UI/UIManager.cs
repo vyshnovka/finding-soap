@@ -43,6 +43,10 @@ namespace Internal.UI
             OnMinigameStart -= ToggleMinigameUI;
         }
 
+        /// <summary>
+        /// Update the message inquest log or disable quest log if no message is set.
+        /// </summary>
+        /// <param name="newQuestLog"></param>
         private void UpdateQuestLog(string newQuestLog)
         {
             if (!string.IsNullOrEmpty(newQuestLog))
@@ -56,14 +60,25 @@ namespace Internal.UI
             }
         }
 
+        /// <summary>
+        /// Toggle button to open the map.
+        /// </summary>
         private void ToggleNavigation() => mapButton.SetActive(!mapButton.activeSelf);
 
+        /// <summary>
+        /// Toggle map location button via its name.
+        /// </summary>
+        /// <param name="buttonName">Button name.</param>
         private void ToggleButtonInt(string buttonName)
         {
             var buttonToToggle = mapLocations.FirstOrDefault(button => button.gameObject.name == buttonName);
             buttonToToggle.interactable = !buttonToToggle.interactable;
         }
 
+        /// <summary>
+        /// Toggle minigame UI.
+        /// </summary>
+        /// <param name="active">UI activity.</param>
         private void ToggleMinigameUI(bool active)
         {
             minigameCanvas.SetActive(active);
