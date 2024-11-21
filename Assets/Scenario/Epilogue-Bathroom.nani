@@ -7,8 +7,8 @@
 @if NPC1Mood=="Happy"
     @char NPC1
     NPC1: Поболтаем, когда я закончу принимать душ.
+    {G_PlayerName}: Ладно...
     @hide NPC1
-    @resetText
 @else
     @hide NPC1
     {G_PlayerName}: Никого нет, а вода течет... Деньги на ветер!

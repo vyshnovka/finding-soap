@@ -7,8 +7,8 @@
 @if NPC2Mood=="Happy"
     @char NPC2
     NPC2: Я не могу поторопить стиральную машинку! Тебе придется подождать, если хочешь поболтать.
+    {G_PlayerName}: Ладно...
     @hide NPC2
-    @resetText
 @else
     @hide NPC2
     {G_PlayerName}: Здесь только вещи.

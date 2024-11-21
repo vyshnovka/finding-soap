@@ -24,4 +24,4 @@ MonoBehaviour:
   - name: NPC2Mood
     value: '"Default"'
   - name: Failed
-    value: '"True"'
+    value: '""'
