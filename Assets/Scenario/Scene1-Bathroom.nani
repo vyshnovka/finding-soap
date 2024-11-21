@@ -1,0 +1,39 @@
+@back Bathroom
+@bgm Shower
+@char NPC1.Shocked
+
+NPC1: Ой! Ты кто?! И что ты делаешь в моей ванной?!
+{G_PlayerName}: Эээ... Я {G_PlayerName}. Извини, дверь была открыта...
+{G_PlayerName}: Я хотел попросить кусочек мыла.
+
+@char NPC1.Default
+
+NPC1: Ты напугал меня, {G_PlayerName}. Но ничего страшного, ты очень вовремя!
+NPC1: Мне как раз нужна чья-то помощь!
+NPC1: Я собиралась принять душ, но у меня закончилось мыло. Не мог бы ты сходить в прачечную и попросить для меня запасной кусок у моей соседки?
+NPC1: Она блондинка, ты сразу ее узнаешь.
+
+@set QuestLog="Найти подругу в прачечной"
+@updateQuestLog text:"Найти подругу в прачечной"
+
+@toggleNavigation
+@toggleButton name:"Laundry"
+
+@hide NPC1
+
+{G_PlayerName}: Очень неожиданно...
+{G_PlayerName}: Кажется, я виноват, что так резко ворвался. Теперь придется помочь.
+
+@set Location=""
+
+# Wait
+@wait 0.1
+@if Location==""
+    @goto .Wait
+@endif
+
+@resetText
+
+@stopBgm
+
+@goto Scene2-Laundry

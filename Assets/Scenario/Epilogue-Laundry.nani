@@ -1,0 +1,32 @@
+@toggleNavigation
+@set isLaundryAvailable="false"
+
+@back Laundry
+@bgm Laundry
+
+@if NPC2Mood=="Happy"
+    @char NPC2
+    NPC2: Я не могу поторопить стиральную машинку! Тебе придется подождать, если хочешь поболтать.
+    @hide NPC2
+    @resetText
+@else
+    @hide NPC2
+    {G_PlayerName}: Здесь только вещи.
+@endif
+
+@set isBathroomAvailable="true"
+@toggleNavigation
+
+@set Location=""
+
+# Wait
+@wait 0.1
+@if Location==""
+    @goto .Wait
+@endif
+
+@resetText
+
+@stopBgm
+
+@goto Epilogue-Bathroom

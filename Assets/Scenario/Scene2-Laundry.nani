@@ -1,0 +1,49 @@
+@toggleNavigation
+
+@set QuestLog=""
+@updateQuestLog text:""
+
+@back Laundry
+@bgm Laundry
+@char NPC2
+
+{G_PlayerName}: Полагаю, твоя соседка отправила меня к тебе.
+NPC2: Дай угадаю, она просила принести ей мыло?
+NPC2: Это уже третий кусок за неделю, а сегодня только четверг! Она его что, ест?!
+NPC2: Я не отдам свой кусок просто так, тебе придется постараться.
+
+@minigame type:"Memory"
+
+@if Failed==true
+    NPC2: Мда, я ожидала большего... Ладно, не важно. У меня все равно нет мыла.
+@else
+    NPC2: Ого, ничего себе! Не ожидала, что ты так хорошо справишься! Теперь я чувствую себя виноватой, ведь мыла у меня нет.
+@endif
+
+NPC2: Я собиралась купить его в магазине. Мне как раз нужен кусок для стирки. Сходишь вместо меня?
+
+@set QuestLog="Купить мыло в магазине"
+@updateQuestLog text:"Купить мыло в магазине"
+
+@toggleNavigation
+@toggleButton name:"Laundry"
+@toggleButton name:"Shop"
+
+@hide NPC2
+
+{G_PlayerName}: Она так быстро убежала, что я даже не успел ей отказать!
+{G_PlayerName}: Выбора нет, придется идти в магазин...
+
+@set Location=""
+
+# Wait
+@wait 0.1
+@if Location==""
+    @goto .Wait
+@endif
+
+@resetText
+
+@stopBgm
+
+@goto Scene3-Shop

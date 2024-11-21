@@ -1,0 +1,31 @@
+; Russian <ru> to Romanian <ro> localization document for `Scene1-Bathroom` naninovel script
+
+# d0af49dc
+; NPC1: Ой! Ты кто?! И что ты делаешь в моей ванной?!
+
+# e544c5cd
+; {G_PlayerName}: Эээ... Я {G_PlayerName}. Извини, дверь была открыта...
+
+# c8746b80
+; {G_PlayerName}: Я хотел попросить кусочек мыла.
+{G_PlayerName}: Am vrut să cer un săpun.
+
+# 723b6071
+; NPC1: Ты напугал меня, {G_PlayerName}. Но ничего страшного, ты очень вовремя!
+NPC1: M-ai speriat, {G_PlayerName}. Dar e în regulă, ești tocmai la timp!
+
+# 2489de4
+; NPC1: Мне как раз нужна чья-то помощь!
+NPC1: Am nevoie doar de ajutorul cuiva!
+
+# 968b0bd6
+; NPC1: Я собиралась принять душ, но у меня закончилось мыло. Не мог бы ты сходить в прачечную и попросить для меня запасной кусок у моей соседки?
+
+# 6f2db7ee
+; NPC1: Она блондинка, ты сразу ее узнаешь.
+
+# cd97adbb
+; {G_PlayerName}: Очень неожиданно...
+
+# 25fd17bb
+; {G_PlayerName}: Кажется, я виноват, что так резко ворвался. Теперь придется помочь.

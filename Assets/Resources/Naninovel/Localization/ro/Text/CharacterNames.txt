@@ -1,0 +1,4 @@
+; Russian <ru> to Romanian <ro> localization document for `CharacterNames` managed text document
+
+NPC1: Fata din baie
+NPC2: Fata din spălătorie

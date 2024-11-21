@@ -1,0 +1,79 @@
+@toggleNavigation
+
+@set QuestLog=""
+@updateQuestLog text:""
+
+@back Bathroom
+@bgm Shower
+@char NPC1
+@char NPC2
+
+NPC1: О, {G_PlayerName}, ты принес мне мыло!
+NPC2: Ага, конечно! Я знаю, что {G_PlayerName} принес мыло мне. Мне оно очевидно нужнее. Как я буду стирать свои вещи? Или мне ходить В ГРЯЗНОМ?
+NPC1: А мне, по-твоему, ходить ГРЯЗНОЙ? Мне нужнее!
+NPC2: Может если бы ты не проводила в душе по 5 часов в день, у тебя сейчас было бы мыло.
+NPC1: Может если бы ты стирала вещи порошком...
+NPC2: Хватит! {G_PlayerName}, решай. Все зависит только от тебя.
+
+@set QuestLog="Решить, кому достанется мыло"
+@updateQuestLog text:"Решить, кому достанется мыло"
+
+@choice "Оставить мыло себе" goto:.KeepItem
+@choice "Отдать девочке из душа" goto:.GiveNPC1
+@choice "Отдать девочке из прачечной" goto:.GiveNPC2
+
+@set QuestLog=""
+@updateQuestLog text:""
+
+@stop
+
+# KeepItem
+{G_PlayerName}: Извините, девчонки, мне тоже хочется помыться и постирать свои вещи...
+@set NPC1Mood="Angry"
+@set NPC2Mood="Angry"
+@goto .Ending
+
+# GiveNPC1
+{G_PlayerName}: Мне кажется, мыться важнее. Готов поспорить, у тебя полный шкаф чистых вещей. Да и действительно разумнее стирать вещи в порошке.
+@set NPC1Mood="Happy"
+@set NPC2Mood="Angry"
+@goto .Ending
+
+# GiveNPC2
+{G_PlayerName}: Я не уверен, что ты используешь мыло по назначению. Куска мыла обычно хватает на пару месяцев, а не пару дней... Так что лучше уж этим мылом постирать вещи.
+@set NPC1Mood="Angry"
+@set NPC2Mood="Happy"
+@goto .Ending
+
+# Ending
+@char NPC1.{NPC1Mood}
+@char NPC2.{NPC2Mood}
+NPC1: {NPC1Mood == "Happy" ? "Спасибо! Сегодня, как и всегда, моя кожа будет благоухать цветами!" : "Ой, ну и проваливай отсюда... Помоюсь зубной пастой!"}
+@hide NPC1
+NPC2: {NPC2Mood == "Happy" ? "Ха! Я же говорила! Боюсь представить, что она делает с мылом." : "Наверное ты тоже ешь по куску мыла на завтрак!"}
+@hide NPC2
+
+{G_PlayerName}: Ну и денек... Никогда еще не ссорился из-за мыла.
+
+@toggleNavigation
+@toggleButton name:"Laundry"
+
+@set Location=""
+
+# Wait
+@wait 0.1
+@if Location==""
+    @goto .Wait
+@endif
+
+@resetText
+
+@stopBgm
+
+@if Location=="Laundry"
+    @goto Epilogue-Laundry
+@endif
+
+@if Location=="Bathroom"
+    @goto Epilogue-Bathroom
+@endif

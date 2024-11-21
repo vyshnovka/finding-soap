@@ -1,0 +1,32 @@
+@toggleNavigation
+
+@set QuestLog=""
+@updateQuestLog text:""
+
+@back Laundry
+@bgm Laundry 
+
+{G_PlayerName}: Никого.
+{G_PlayerName}: Наверное, поднялась в квартиру.
+{G_PlayerName}: Просто уйти с мылом как-то некрасиво. Думаю, стоит пойти к девочкам.
+
+@set QuestLog="Вернуться в квартиру девочек"
+@updateQuestLog text:"Вернуться в квартиру девочек"
+
+@toggleNavigation
+@toggleButton name:"Laundry"
+@toggleButton name:"Bathroom"
+
+@set Location=""
+
+# Wait
+@wait 0.1
+@if Location==""
+    @goto .Wait
+@endif
+
+@resetText
+
+@stopBgm
+
+@goto Scene5-Bathroom-All

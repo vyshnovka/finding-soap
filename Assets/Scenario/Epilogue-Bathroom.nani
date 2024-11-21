@@ -1,0 +1,32 @@
+@toggleNavigation
+@set isBathroomAvailable="false"
+
+@back Bathroom
+@bgm Shower 
+
+@if NPC1Mood=="Happy"
+    @char NPC1
+    NPC1: Поболтаем, когда я закончу принимать душ.
+    @hide NPC1
+    @resetText
+@else
+    @hide NPC1
+    {G_PlayerName}: Никого нет, а вода течет... Деньги на ветер!
+@endif
+
+@set isLaundryAvailable="true"
+@toggleNavigation
+
+@set Location=""
+
+# Wait
+@wait 0.1
+@if Location==""
+    @goto .Wait
+@endif
+
+@resetText
+
+@stopBgm
+
+@goto Epilogue-Laundry

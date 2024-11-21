@@ -1,0 +1,13 @@
+@back Building
+
+@input name summary:"Тебя зовут..."
+
+@stop
+
+@set G_PlayerName=name
+
+@set isBathroomAvailable="false"
+@set isLaundryAvailable="false"
+@set isShopAvailable="false"
+
+@goto Scene1-Bathroom

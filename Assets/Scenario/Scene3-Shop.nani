@@ -1,0 +1,32 @@
+@toggleNavigation
+
+@set QuestLog=""
+@updateQuestLog text:""
+
+@back Shop
+@bgm Shop
+
+{G_PlayerName}: Если бы мне кто-то сказал, что в будний день в супермаркете на совершенно пустой полке будет лежать ОДНА ЕДИНСТВЕННАЯ упаковка мыла, я бы не поверил.
+{G_PlayerName}: Хорошо, что я бегаю быстрее, чем та бабка, которая тоже была нацелена на этот несчастный последний кусок.
+{G_PlayerName}: И как теперь делить один кусок мыла на троих?..
+
+@set QuestLog="Вернуться в прачечную"
+@updateQuestLog text:"Вернуться в прачечную"
+
+@toggleNavigation
+@toggleButton name:"Laundry"
+@toggleButton name:"Shop"
+
+@set Location=""
+
+# Wait
+@wait 0.1
+@if Location==""
+    @goto .Wait
+@endif
+
+@resetText
+
+@stopBgm
+
+@goto Scene4-Laundry-Alone
